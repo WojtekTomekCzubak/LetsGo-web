@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/LetsGo-web/favicon.png" />
+    <link rel="apple-touch-icon" href="/LetsGo-web/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="LetsGo — dziennik treningowy offline z rekomendacjami progresji." />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="LetsGo" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>LetsGo</title>
+    <script>
+      // Apply the saved theme before the first paint, so a dark theme does not flash white (src/ui/theme.ts does the rest).
+      (function () {
+        try {
+          var t = JSON.parse(localStorage.getItem('letsgo-theme') || '{}');
+          var dark = t.mode === 'dark' || (t.mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+          if (/^#[0-9a-f]{6}$/i.test(t.accent || '')) document.documentElement.style.setProperty('--accent', t.accent);
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/LetsGo-web/assets/index-DoBIyWV5.js"></script>
+    <link rel="stylesheet" crossorigin href="/LetsGo-web/assets/index-WWhssnzI.css">
+  <link rel="manifest" href="/LetsGo-web/manifest.webmanifest"></head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
